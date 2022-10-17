@@ -1,0 +1,39 @@
+﻿@model IEnumerable<MVCSell.Models.loginmodel>
+
+@{
+    ViewBag.Title = "LapList";
+}
+
+<h2>LapList</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.custid)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.custname)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.custid)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.custname)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.custid }) |
+            @Html.ActionLink("Details", "Details", new {  id=item.custid }) |
+            @Html.ActionLink("Delete", "Delete", new {  id=item.custid })
+        </td>
+    </tr>
+}
+
+</table>
